@@ -1,0 +1,12 @@
+services:
+  jumpserver-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jumpserver-mcp-curated:0.2.0
+    container_name: jumpserver-mcp
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${SERVER_PORT:-8099}:8099"
